@@ -7,6 +7,8 @@ dependencies:
     - node.type.product
   module:
     - image
+_core:
+  default_config_hash: CN1lnXyjob4ZHHlIZpdTRhFBfw5x8nHLiZ6YGtml_B4
 id: node.product.field_image
 field_name: field_image
 entity_type: node

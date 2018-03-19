@@ -7,6 +7,8 @@ dependencies:
     - node.type.product
   module:
     - text
+_core:
+  default_config_hash: Mx9iA1tiZCT0rsTkraw7pKhPAw2dB0hIkdN9QmX1i04
 id: node.product.body
 field_name: body
 entity_type: node

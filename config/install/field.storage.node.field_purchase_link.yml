@@ -5,6 +5,8 @@ dependencies:
   module:
     - link
     - node
+_core:
+  default_config_hash: cfgAQcGxgMajga28fjkLV814cHvaq0obJmRApAJtSyI
 id: node.field_purchase_link
 field_name: field_purchase_link
 entity_type: node

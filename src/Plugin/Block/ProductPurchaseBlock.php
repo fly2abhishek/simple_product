@@ -82,11 +82,11 @@ class ProductPurchaseBlock extends BlockBase implements ContainerFactoryPluginIn
   public function blockForm($form, FormStateInterface $form_state) {
     $form = [];
     $config = $this->getConfiguration();
-    $form['lebel'] = [
+    $form['qr_text'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Label that appears above the QA code.'),
       '#description' => $this->t('Enter a label'),
-      '#default_value' => ($config['lebel']) ? $config['lebel'] : 'Scan the code',
+      '#default_value' => ($config['qr_text']) ? $config['qr_text'] : 'Scan the code',
     ];
     $form['size'] = [
       '#type' => 'number',
@@ -110,7 +110,7 @@ class ProductPurchaseBlock extends BlockBase implements ContainerFactoryPluginIn
   public function blockSubmit($form, FormStateInterface $form_state) {
     parent::blockSubmit($form, $form_state);
     $values = $form_state->getValues();
-    $this->configuration['label'] = $values['label'];
+    $this->configuration['qr_text'] = $values['qr_text'];
     $this->configuration['size'] = $values['size'];
     $this->configuration['margin'] = $values['margin'];
   }
@@ -146,9 +146,9 @@ class ProductPurchaseBlock extends BlockBase implements ContainerFactoryPluginIn
         }
       }
 
-      if ($this->configuration['label']) {
-        $build['label'] = [
-          '#plain_text' => $this->configuration['label'],
+      if ($this->configuration['qr_text']) {
+        $build['qr_text'] = [
+          '#markup' => '<p>' . $this->configuration['qr_text'] . '</p>',
         ];
       }
 
@@ -157,7 +157,7 @@ class ProductPurchaseBlock extends BlockBase implements ContainerFactoryPluginIn
         '#uri' => file_default_scheme() . "://" . $path,
         '#alt' => $this->t('QR Code'),
       ];
-
+      $build['#attached']['library'][] = 'simple_product/simple_product';
       return $build;
 
     }

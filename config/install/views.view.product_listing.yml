@@ -14,7 +14,7 @@ dependencies:
     - text
     - user
 _core:
-  default_config_hash: ezK5Dw8P_4bqJdDQIiecSAJak9p1Wf1yDwHzTutGFuQ
+  default_config_hash: eagvqMmHsxhhezNwKefZV8j6JdeEZ82QyDqxtIBT0K8
 id: product_listing
 label: 'Product Listing'
 module: node

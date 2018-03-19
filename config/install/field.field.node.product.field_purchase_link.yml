@@ -7,6 +7,8 @@ dependencies:
     - node.type.product
   module:
     - link
+_core:
+  default_config_hash: rycxY6rcMupKEy8_4edpkxsYOT0MeLwVwAlXutsD6UU
 id: node.product.field_purchase_link
 field_name: field_purchase_link
 entity_type: node

@@ -1,0 +1,14 @@
+.block-simple-product {
+  border: 1px solid #CCC;
+  display: inline-block;
+  padding: 10px;
+  box-shadow: 0px 0px 10px #AAA inset;
+ }
+.block-simple-product .content {
+  text-align: center;
+  margin: 0;
+}
+.block-simple-product .content p {
+  margin: 0;
+  ext-transform: uppercase;
+}

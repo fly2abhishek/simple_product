@@ -9,10 +9,18 @@ dependencies:
     - image.style.thumbnail
     - node.type.product
   module:
+    - field_layout
     - image
+    - layout_discovery
     - link
     - path
     - text
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings: {  }
+_core:
+  default_config_hash: U6hWasWPohhnWHNv-S0dFZRL7bH2YfQZozs-zQRw1Lo
 id: node.product.default
 targetEntityType: node
 bundle: product
@@ -93,3 +101,4 @@ content:
       placeholder: ''
     region: content
     third_party_settings: {  }
+hidden: {  }

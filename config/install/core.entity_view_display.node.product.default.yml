@@ -9,10 +9,72 @@ dependencies:
     - image.style.large
     - node.type.product
   module:
+    - field_layout
     - image
+    - layout_builder
+    - layout_discovery
     - simple_product
     - text
     - user
+third_party_settings:
+  field_layout:
+    id: layout_onecol
+    settings: {  }
+  layout_builder:
+    sections:
+      -
+        layout_id: layout_twocol
+        layout_settings: {  }
+        components:
+          a46ffbc7-dbae-470b-997e-be499034cdcf:
+            uuid: a46ffbc7-dbae-470b-997e-be499034cdcf
+            region: first
+            configuration:
+              id: 'field_block:node:product:field_image'
+              label_display: ''
+              formatter:
+                label: hidden
+                settings:
+                  image_style: large
+                  image_link: ''
+                third_party_settings: {  }
+                type: image
+              context_mapping:
+                entity: layout_builder.entity
+            additional: {  }
+            weight: 0
+          b2094582-6c7f-4c1c-9808-909fc4f118a6:
+            uuid: b2094582-6c7f-4c1c-9808-909fc4f118a6
+            region: second
+            configuration:
+              id: 'field_block:node:product:body'
+              label_display: ''
+              formatter:
+                label: hidden
+                type: text_default
+                settings: {  }
+                third_party_settings: {  }
+              context_mapping:
+                entity: layout_builder.entity
+            additional: {  }
+            weight: 0
+          5dc757d7-fb16-40dd-8a75-3765491ec89f:
+            uuid: 5dc757d7-fb16-40dd-8a75-3765491ec89f
+            region: second
+            configuration:
+              id: product_purchase
+              label: 'Product Purchase Link Block'
+              provider: simple_product
+              label_display: '0'
+              size: '300'
+              margin: '10'
+              context_mapping:
+                node: layout_builder.entity
+            additional: {  }
+            weight: 1
+    allow_custom: false
+_core:
+  default_config_hash: 4f9mTTLwoXubnueML8vopiuq5G-HvzRPeju8xLx_ZVg
 id: node.product.default
 targetEntityType: node
 bundle: product

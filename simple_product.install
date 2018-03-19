@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file Sets the homepage to the product list view.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function custom_product_install() {
+  $config = \Drupal::service('config.factory')->getEditable('system.site');
+  $config->set('page.front', '/product');
+  $config->save();
+}
+
+/**
+ * Implements hook_install().
+ */
+function custom_product_uninstall() {
+  $config = \Drupal::service('config.factory')->getEditable('system.site');
+  $config->set('page.front', '/node');
+  $config->save();
+}
