@@ -8,10 +8,8 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\node\NodeInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Endroid\QrCode\ErrorCorrectionLevel;
-use Endroid\QrCode\LabelAlignment;
 use Endroid\QrCode\QrCode;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 require_once \Drupal::service('module_handler')
     ->getModule('simple_product')
@@ -43,6 +41,21 @@ class ProductPurchaseBlock extends BlockBase implements ContainerFactoryPluginIn
   protected $fileSystem;
 
   /**
+   * ProductPurchaseBlock constructor.
+   *
+   * @param array $configuration
+   * @param string $plugin_id
+   * @param mixed $plugin_definition
+   * @param \Drupal\Core\Routing\RouteMatchInterface $route_match
+   * @param \Drupal\Core\File\FileSystemInterface $file_system
+   */
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, RouteMatchInterface $route_match, FileSystemInterface $file_system) {
+    parent::__construct($configuration, $plugin_id, $plugin_definition);
+    $this->routeMatch = $route_match;
+    $this->fileSystem = $file_system;
+  }
+
+  /**
    * @param \Symfony\Component\DependencyInjection\ContainerInterface $container
    * @param array $configuration
    * @param string $plugin_id
@@ -58,21 +71,6 @@ class ProductPurchaseBlock extends BlockBase implements ContainerFactoryPluginIn
       $container->get('current_route_match'),
       $container->get('file_system')
     );
-  }
-
-  /**
-   * ProductPurchaseBlock constructor.
-   *
-   * @param array $configuration
-   * @param string $plugin_id
-   * @param mixed $plugin_definition
-   * @param \Drupal\Core\Routing\RouteMatchInterface $route_match
-   * @param \Drupal\Core\File\FileSystemInterface $file_system
-   */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, RouteMatchInterface $route_match, FileSystemInterface $file_system) {
-    parent::__construct($configuration, $plugin_id, $plugin_definition);
-    $this->routeMatch = $route_match;
-    $this->fileSystem = $file_system;
   }
 
   /**
