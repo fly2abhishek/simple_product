@@ -1,0 +1,16 @@
+{
+    "name": "abhishek.anand/simple_product",
+    "description": "A very simple product with external buy link.",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Abhishek Anand",
+            "email": "fly2abhishek@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "endroid/qr-code": "2.5.0"
+    }
+}
