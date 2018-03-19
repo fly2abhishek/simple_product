@@ -9,33 +9,8 @@ dependencies:
     - field.field.node.product.field_purchase_link
     - node.type.product
   module:
-    - layout_builder
-    - layout_discovery
     - text
     - user
-third_party_settings:
-  layout_builder:
-    sections:
-      -
-        layout_id: layout_onecol
-        layout_settings: {  }
-        components:
-          c42b2ba9-7ac2-4e33-b88a-3cb96e1ef6bd:
-            uuid: c42b2ba9-7ac2-4e33-b88a-3cb96e1ef6bd
-            region: content
-            configuration:
-              id: 'field_block:node:product:body'
-              label_display: ''
-              formatter:
-                label: hidden
-                type: text_summary_or_trimmed
-                settings:
-                  trim_length: 600
-                third_party_settings: {  }
-              context_mapping:
-                entity: layout_builder.entity
-            additional: {  }
-            weight: 0
 id: node.product.teaser
 targetEntityType: node
 bundle: product

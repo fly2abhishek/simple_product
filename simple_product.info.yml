@@ -3,6 +3,3 @@ type: module
 description: 'Provides a simple product content type with external purchase link.'
 package: Custom
 core: 8.x
-dependencies:
-  - layout_builder
-  - field_layout
