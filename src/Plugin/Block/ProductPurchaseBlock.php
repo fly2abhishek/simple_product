@@ -31,12 +31,12 @@ require_once \Drupal::service('module_handler')
 class ProductPurchaseBlock extends BlockBase implements ContainerFactoryPluginInterface {
 
   /**
-   * @var routeMatch \Drupal\Core\Routing\RouteMatchInterface
+   * @var routeMatch\Drupal\Core\Routing\RouteMatchInterface
    */
   protected $routeMatch;
 
   /**
-   * @var route_match Drupal\Core\File\FileSystemInterface
+   * @var route_matchDrupal\Core\File\FileSystemInterface
    */
   protected $fileSystem;
 
@@ -86,7 +86,7 @@ class ProductPurchaseBlock extends BlockBase implements ContainerFactoryPluginIn
       '#type' => 'textfield',
       '#title' => $this->t('Label that appears above the QA code.'),
       '#description' => $this->t('Enter a label'),
-      '#default_value' => ($config['qr_text']) ? $config['qr_text'] : 'Scan the code',
+      '#default_value' => ($config['qr_text']) ? $config['qr_text'] : $this->t('Scan the code'),
     ];
     $form['size'] = [
       '#type' => 'number',
@@ -131,14 +131,14 @@ class ProductPurchaseBlock extends BlockBase implements ContainerFactoryPluginIn
         $link = $node->get('field_purchase_link')->uri;
 
         if ($link) {
-          // Create a basic QR code
+          // Create a basic QR code.
           $qrCode = new QrCode($link);
           $qrCode->setSize($this->configuration['size'])
             ->setMargin($this->configuration['margin']);
 
           $path = '/qr-codes-' . $node->id() . '.png';
 
-          // Save it to a file
+          // Save it to a file.
           $qrCode->writeFile($filepath . $path);
         }
         else {
